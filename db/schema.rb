@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_015115) do
     t.index ["idea_id"], name: "index_comments_on_idea_id"
   end
 
-  create_table "ideas", force: :cascade do |t|
+  create_table "投稿", force: :cascade do |t|
     t.string "名前"
     t.text "説明"
     t.string "写真"

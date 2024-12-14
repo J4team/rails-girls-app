@@ -24,7 +24,7 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-    @idea = Idea.find(parms[:id])
+    @idea = Idea.find(params[:id])
     @users = User.all
   end
 

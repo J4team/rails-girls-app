@@ -2,7 +2,7 @@
   <% if idea.errors.any? %>
  
     <div style="color: red">
-      <h2><%= pluralize(idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+      <h2><%= pluralize(idea.errors.count, "エラー") %> prohibited this idea from being saved:</h2>
 
       <ul>
         <% idea.errors.each do |error| %>
@@ -13,8 +13,8 @@
   <% end %>
   
  <div>
-  <%= form.label :user_id,"User"%>
-  <%= form.collection_select :user_id,users, :id, :name, prompt:"select a User"%>
+  <%= form.label :user_id,"ユーザー"%>
+  <%= form.collection_select :user_id,users, :id, :name, prompt:"ユーザーを選択"%>
   </div>
 
   <div>

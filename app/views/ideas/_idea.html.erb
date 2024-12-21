@@ -2,7 +2,7 @@
   <div class="d-flex flex-column gap-2 w-100">
     <h2><%= link_to "@"+User.find(idea.user_id).name, idea_path(idea) %></h2>
     <h2><%= idea.name %></h2>
-    <p><%= idea.description %></p>
+    <p><%= simple_format(idea.description) %></p>
     <small class="opacity-50 text-nowrap">from: <%= User.find(idea.user_id).address %></small>
     <small class="opacity-50 text-nowrap">Last updated <%= time_ago_in_words idea.updated_at %></small>
   </div>

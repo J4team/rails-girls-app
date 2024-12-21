@@ -13,7 +13,7 @@
   <% end %>
   
  <div>
-  ユーザー名<small>初めて投稿する方は、<a href="./../users/new">ここ</a>からユーザー登録をしてください</small><br>
+  ユーザー名<small>(初めて投稿する方は、<a href="./../users/new">ここ</a>からユーザー登録をしてください)</small><br>
   <%= form.collection_select :user_id,users, :id, :name, prompt:"select a User"%>
   </div>
 

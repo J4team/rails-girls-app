@@ -20,7 +20,40 @@
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
   </div>
+  
+  <label style="display: block" for="user_email">郵便番号</label>
+  <input type="text" id="zipcode" name="zipcode" oninput="fetchAddress(this.value)">
+  
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address, id: "address" %>
+  </div>
 
+<!--
+<form>
+  <label for="zipcode"><small>(郵便番号入力で住所自動入力)</small></label>
+  <input type="text" id="zipcode" name="zipcode" oninput="fetchAddress(this.value)">
+  <label for="address">住所(町名まで)</label>
+  <input type="text" id="address" name="address" readonly>
+</form>
+-->
+
+<script>
+function fetchAddress(zipCode) {
+  if (zipCode.length === 7) {
+    fetch(`https://api.zipaddress.net/?zipcode=${zipCode}`, { mode: 'cors' })
+      .then(response => response.json())
+      .then(data => {
+        if (data.code === 200) {
+          document.getElementById('address').value = data.data.fullAddress;
+        } else {
+          document.getElementById('address').value = '住所が見つかりません';
+        }
+      })
+      .catch(error => console.error('エラーが発生しました:', error));
+  }
+}
+</script>
   <div>
     <%= form.submit %>
   </div>

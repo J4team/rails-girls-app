@@ -21,7 +21,7 @@
     <%= form.text_field :email %>
   </div>
   
-  <label style="display: block" for="user_email">郵便番号</label>
+  <label style="display: block" for="user_email">郵便番号(住所自動入力用)</label>
   <input type="text" id="zipcode" name="zipcode" oninput="fetchAddress(this.value)">
   
   <div>
@@ -29,14 +29,7 @@
     <%= form.text_field :address, id: "address" %>
   </div>
 
-<!--
-<form>
-  <label for="zipcode"><small>(郵便番号入力で住所自動入力)</small></label>
-  <input type="text" id="zipcode" name="zipcode" oninput="fetchAddress(this.value)">
-  <label for="address">住所(町名まで)</label>
-  <input type="text" id="address" name="address" readonly>
-</form>
--->
+
 
 <script>
 function fetchAddress(zipCode) {
